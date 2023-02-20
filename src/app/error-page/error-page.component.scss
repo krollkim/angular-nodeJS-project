@@ -1,0 +1,75 @@
+.card{
+    text-align: center;
+    background: skyblue;
+    border-radius: 5px;
+    box-shadow: 0 0 8px #00000075;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+}
+.content{
+  position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+   h2{
+        font-size: 30px;
+        color: black;
+         margin: 0;
+        text-shadow: 1px 1px 2px rgb(255, 255, 255);
+    }
+   p{
+        margin: 0;
+        font-size: 60px;
+        text-shadow: 1px 1px 5px deeppink;
+    }
+}
+.returnBtn{
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    margin-bottom: 20px;
+    background-color: #823666;
+    border: 1px solid black;
+    color: white;
+    border-radius: 4px;
+    width: 150px;
+ }
+
+.returnBtn:hover {
+    box-shadow: 0px 0px 5px black;
+    cursor: pointer;
+}
+
+.genDiv{
+    width: 150px;
+    height: 150px;
+    border-radius: 25%;
+}
+
+.errorCard{
+    position: relative;
+    max-width: 550px;
+    height: 400px;
+    background: #ffffffcc;
+    padding: 32px;
+    border-radius: 8px;
+    box-shadow: 0 0 8px #00000075;
+    margin: 70px auto;
+}
+#title1{
+   margin-bottom: 100px;
+}
+#title2{
+   margin-top: 100px;
+}

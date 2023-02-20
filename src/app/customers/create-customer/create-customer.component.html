@@ -1,0 +1,30 @@
+
+<p *ngIf="isSended">הטופס נשלח בהצלחה</p>
+<form *ngIf="!isSended" [formGroup]="customerForm">
+    <div class="field">
+        <label>first name:</label>
+        <input class="w3-input w3-border w3-round" type="text" formControlName="firstName">
+    </div>
+    <div class="field">
+        <label>last name:</label>
+        <input class="w3-input w3-border w3-round" type="text" formControlName="lastName">
+    </div>
+    <div class="field">
+        <label>email:</label>
+        <input class="w3-input w3-border w3-round" type="text" formControlName="email">
+    </div>
+    <div class="field">
+        <label>phone:</label>
+        <input class="w3-input w3-border w3-round" type="text" formControlName="phone">
+    </div>
+    <div class="field">
+        <label>address:</label>
+        <input class="w3-input w3-border w3-round" type="text" formControlName="address">
+    </div>
+    <div class="field">
+        <label>notes:</label>
+        <input class="w3-input w3-border w3-round" type="text" formControlName="notes">
+    </div>
+
+    <button class="w3-btn w3-green w3-round w3-block" [disabled]="!customerForm.valid" routerLink="/" (click)="add()">add <i class="fa fa-save"></i></button>
+</form>

@@ -1,0 +1,32 @@
+<h1>signup</h1>
+
+<form [formGroup]="signupForm">
+    <div class="field">
+        <label><i class="fa fa-user"></i> full name:</label>
+        <input class="w3-input w3-border w3-round" type="text" formControlName="fullName"
+        >
+    </div>
+    <div class="field">
+        <label><i class="fa fa-envelope"></i>email:</label>
+        <input class="w3-input w3-border w3-round" type="text" formControlName="email"
+        >
+    </div>
+    <div class="field">
+        <label><i class="fa fa-user"></i>user name:</label>
+        <input class="w3-input w3-border w3-round" type="text" formControlName="userName"
+        >
+    </div>
+    <div class="field">
+        <label><i class="fa fa-asterisk
+            "></i> password:</label>
+        <input class="w3-input w3-border w3-round" type="text" formControlName="password"
+        >
+    </div>
+
+    <button class="w3-btn w3-green w3-round w3-block" [disabled]="!signupForm.valid" (click)="signup()">send form <i class="fa fa-check
+        "></i></button>
+
+        <p>
+            <a routerLink="/login">login account</a>
+        </p>
+</form>

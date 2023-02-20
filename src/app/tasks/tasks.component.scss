@@ -1,0 +1,126 @@
+.inputFrame{
+    text-align: center;
+    margin-bottom: 0;
+    margin-top: 50px;
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+
+
+    input {
+        padding: 8px 12px;
+        border-radius: 5px;
+        border: 1px solid;
+        width: 80%;
+        display: block;
+        position: relative;
+    }
+
+    * {
+        margin: 0 3px;
+    }
+
+}
+h2{
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.frame {
+    display: grid;
+    grid-template-columns: auto auto auto;
+    padding: 10px;
+
+    .inputFrame{
+        text-align: center;
+        margin-bottom: 0;
+        margin-top: 50px;
+}
+    .column {
+        padding: 20px;
+
+
+    .cards {
+        min-height: 300px;
+        padding: 16px;
+        border-radius: 5px;
+        box-shadow: 0 0 6px 0 #00000045;
+        
+            .card {
+                background-color: #ffffffd1;
+                margin-bottom: 8px;
+                padding: 12px;
+                border-radius: 5px;
+                box-shadow: 0 0 6px 0 #00000045;
+                position: relative;
+                border-left: 4px solid;
+
+                i.fa-remove {
+                    position: absolute;
+                    right: 8px;
+                    top: 8px;
+                    color: red;
+                    cursor: pointer;
+                }
+                
+                p {
+                    margin: 0px;
+                    font-size: 18px;
+                    text-align: left;
+                    margin-bottom: 8px;
+                }
+                
+                button{
+                    padding: 8px;
+                    border: 0;
+                    border-radius: 5px;
+                    margin: 2px 5px;
+                    cursor: pointer;
+                
+                }
+
+                &:active {
+                    opacity: 0.3;
+                    cursor: grab;
+                }
+            }
+
+        }
+    }
+}
+
+
+.drag {
+    border: 2px dashed black;
+}
+
+
+[draggable] {
+    user-select: none;
+}
+
+@media screen and (max-width: 501px) {
+    .frame {
+        display: table;
+        margin: auto;
+    .column {
+        display: contents;
+    }
+}
+}
+@media screen and (max-width: 720px) {
+    .frame {
+        display: block;
+        margin: auto;
+    .column {
+        display: block;
+    }
+}
+}
+@media screen and (max-width: 400px) {
+    .recycle-btn{
+        overflow: inherit;
+    }
+}
+
+

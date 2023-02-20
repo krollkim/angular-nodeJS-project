@@ -1,0 +1,124 @@
+table {
+    border: 1px solid;
+    border-collapse: collapse;
+    text-align: center;
+    margin: auto;
+    max-width: 100%;
+  }
+  
+  th, td {
+    border: 1px solid;
+    padding: 8px;
+    font-size: 16px;
+  }
+  
+  tr:nth-child(even) {
+    background-color: rgba(162, 161, 161, 0.491);
+  }
+  
+  h1, p {
+    text-align: center;
+  }
+  
+  #addCustomer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: auto;
+    flex-wrap: wrap;
+  }
+  
+  #searchInput {
+    display: block;
+    margin: 10px;
+    width: 300px;
+    padding: 8px;
+    border: 1px solid;
+    font-size: 15px;
+    border-radius: 3px;
+  }
+  
+  #searchButton {
+    color: black;
+    padding: 8px;
+    cursor: pointer;
+    background-color: rgba(162, 161, 161, 0.491);
+    border: 1px solid;
+    font-size: 16px;
+  }
+  
+  #searchButton i {
+    margin-right: 5px;
+  }
+  
+  #addButton {
+    color: black;
+    padding: 8px;
+    cursor: pointer;
+    background-color: rgba(162, 161, 161, 0.491);
+    border: 1px solid;
+    font-size: 16px;
+    margin: 10px;
+  }
+  #addCustomer button i {
+    margin-right: 5px;
+  }
+  
+  #searchInput:focus {
+    outline: 1px solid black;
+  }
+  
+  button {
+    color: black;
+    padding: 8px;
+    cursor: pointer;
+  }
+  
+ 
+  
+  @media screen and (max-width: 768px) {
+    th, td {
+      padding: 6px;
+      font-size: 14px;
+    }
+  }
+.parent-container {
+    text-align: center;
+}
+.card-container {
+    margin: 0 auto;
+    max-width: 800px;
+  }
+  
+  .card {
+    display: inline-block;
+    margin: 10px;
+    width: 170px;
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, .1);
+    border-radius: 8px;
+    overflow: hidden;
+    transition: transform .3s ease;
+  }
+  
+  .card:hover {
+    transform: translateY(-5px);
+  }
+  
+  .card-header {
+    padding: 20px;
+    font-size: 18px;
+    font-weight: bold;
+    color: #333;
+    text-align: center;
+  }
+  
+  .card-body {
+    padding: 20px;
+    text-align: center;
+  }
+  
+  .card-body img {
+    max-width: 100%;
+    height: auto;
+  }

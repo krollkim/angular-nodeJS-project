@@ -1,0 +1,48 @@
+<nav class="navbar">
+
+  <img [routerLink]="'/'" id="logoImg" src="../../assets/images/png/logo-no-background.png" alt="logo">
+
+  <div *ngIf="utility.getUser()" class="container" [class.open]="isOpen" (click)="isOpen = !isOpen">
+    <div class="bar1"></div>
+    <div class="bar2"></div>
+    <div class="bar3"></div>
+  </div>
+
+    <a class="aNav" *ngFor="let item of menu" 
+    [hidden]="item.loginRequired && utility.getUser()"
+    [class.BTN]="item.loginRequired"
+    [routerLink]="item.route"
+    [class.navActive]="active == item.route">
+    <i class="fa fa-{{ item.icon }}"></i>
+        {{ item.title }}</a>
+
+    <div *ngIf="utility.getUser()">
+        <p class="welcome">
+            <button class="w3-btn w3-white w3-round welcome-btn" (click)="logout()"><i class="fa fa-sign-out"></i> logout</button>welcome! 
+            {{ utility.getUser()?.fullName }}
+            
+        </p>
+    </div>
+</nav>
+
+<nav *ngIf="utility.getUser()" class="sideNavbar" [class.open]="isOpen">
+    <a *ngFor="let item of menu" 
+    [hidden]="item.loginRequired && utility.getUser()"
+    [class.BTN]="item.loginRequired"
+    [routerLink]="item.route"
+    [class.navActive]="active == item.route">
+    <i class="fa fa-{{ item.icon }}"></i>
+        {{ item.title }}</a>
+
+        <div *ngIf="utility.getUser()">
+            <p class="welcome">
+                <button class="w3-btn w3-white w3-round welcome-btn" (click)="logout()"><i class="fa fa-sign-out"></i> logout</button>welcome! 
+                {{ utility.getUser()?.fullName }}
+                
+            </p>
+        </div>
+
+        <br><br><br><br>
+        <img [routerLink]="'/'" id="logoImg2" src="../../assets/images/png/logo-no-background.png" alt="logo">
+</nav>
+

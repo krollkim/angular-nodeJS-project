@@ -1,0 +1,70 @@
+<h1>customers</h1>
+
+<div class="displayMode">
+    <label>
+        <input [(ngModel)]="displayMode" class="w3-radio" type="radio" name="displayMode" value="folder"> folder
+    </label>
+    <label>
+        <input [(ngModel)]="displayMode" class="w3-radio" type="radio" name="displayMode" value="table"> table
+    </label>
+    <label>
+        <input [(ngModel)]="displayMode" class="w3-radio" type="radio" name="displayMode" value="card"> card
+    </label>
+</div>
+
+
+
+<div id="addCustomer">
+    <input id="searchInput" type="search" [(ngModel)]="searchVal" placeholder="search">
+    <button class="w3-btn w3-green w3-round" routerLink="/create-customer">add customer <i class="fa fa-plus"></i></button>
+</div>
+
+
+<br>
+<table *ngIf="displayMode == 'table'">
+    <thead>
+     <tr>
+        <th>#</th>
+        <th>first name</th>
+        <th>last name</th>
+        <th>email</th>
+        <th>phone</th>
+        <th>address</th>
+        <th>created at</th>
+        <th>notes</th>
+        <th>edit</th>
+        <th>delete</th>
+     </tr>
+       
+    </thead>
+
+    <tbody>
+        
+        <tr *ngFor="let c of data | search : searchVal; let i = index">
+            <td>{{  i + 1 }}</td>
+            <td>{{ c.firstName }}</td>
+            <td>{{ c.lastName }}</td>
+            <td>{{ c.email }}</td>
+            <td>{{ c.phone }}</td>
+            <td>{{ c.address }}</td>
+            <td>{{ c.createdAt | date : 'dd/MM/yyyy' }}</td>
+            <td>{{ c.notes }}</td>
+            <td><button class="w3-btn w3-green w3-round"><i class="	fa fa-edit" [routerLink]="['/','customers','edit-customer', c.id]"></i></button></td>
+            <td><button class="w3-btn w3-red w3-round" (click)="remove(c)">x</button></td>
+        </tr>
+        
+    </tbody>
+</table>
+
+<div *ngIf="displayMode == 'folder'">
+    <div class="card-container">
+      <div class="card" *ngFor="let c of data | search : searchVal; let i = index">
+        <div class="card-header">
+          {{ c.firstName }}
+        </div>
+        <div class="card-body">
+          <img src="./../../assets/images/png/folder.png" alt="Folder Icon">
+        </div>
+      </div>
+    </div>
+  </div>
