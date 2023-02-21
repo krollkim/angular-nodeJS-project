@@ -15,16 +15,18 @@
 
     <button class="w3-btn w3-green w3-round w3-block" [disabled]="!loginForm.valid" (click)="login()"> login<i class="fa fa-check"></i></button>
 
-    <!-- <asl-google-signin-button *ngIf="!user"></asl-google-signin-button>
+    <div class="google-container">
+        <p>signup with google</p>
+          <asl-google-signin-button *ngIf="!user"></asl-google-signin-button>
 
-    <div *ngIf="user">
-        <img src="{{ user.photourl }}">
-        <div>
-            <h4>{{ user.name }}</h4>
-            <p>{{ user.email }}</p>
-        </div>
-    </div> -->
-
+<div *ngIf="user">
+    <img src="{{ user.photourl }}">
+    <div>
+        <h4>{{ user.name }}</h4>
+        <p>{{ user.email }}</p>
+    </div>
+</div>
+    </div>
     <p>
         <a routerLink="/signup">create new account</a>
     </p>

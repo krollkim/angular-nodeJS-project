@@ -27,3 +27,13 @@ p {
        
     }
 
+    .google-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      
+      .google-container p {
+        margin: 30px;
+        margin-right: 8px;
+      }

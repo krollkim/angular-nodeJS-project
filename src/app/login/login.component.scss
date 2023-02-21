@@ -9,3 +9,13 @@ color: #005B60;
     }
    
 }
+    .google-container {
+        display: flex;
+        justify-content: right;
+        align-items: center;
+      }
+      
+      .google-container p {
+        margin: 30px;
+        margin-right: 8px;
+      }

@@ -16,8 +16,8 @@ import { SocialAuthService } from '@abacritt/angularx-social-login';
 })
 export class LoginComponent implements OnInit {
   errorMessage?: string;
-  // user?: any; 
-  // loggedIn?: any; 
+  user?: any; 
+  loggedIn?: boolean; 
 
   loginForm = new FormGroup({
     userName: new FormControl('',[
@@ -51,7 +51,7 @@ export class LoginComponent implements OnInit {
         
     });
 }
-constructor(private http: HttpService, private utility: UtilityService, private router: Router, //private authService: SocialAuthService 
+constructor(private http: HttpService, private utility: UtilityService, private router: Router, private authService: SocialAuthService 
 ) { }
   ngOnInit(){
 
@@ -59,13 +59,22 @@ constructor(private http: HttpService, private utility: UtilityService, private 
       this.router.navigate(['']);
     }
 
-    // this.authService.authState.subscribe((user) => {
-    //   this.user = user;
-    //   this.loggedIn = (user != null);
-    //   if (this.loggedIn) {
+    this.authService.authState.subscribe((user) => {
+      this.user = user;
+      this.loggedIn = (user != null);
+      if (this.loggedIn) {
+        this.router.navigate(['']);
+      }
+      const sub = this.http.post('googleLogin', this.user).subscribe(data => {
+
+          this.utility.setUser(this.user);
+          this.router.navigate(['']);
         
-    //     this.router.navigate(['']);
-    //   }
-    // });
-  }
+      })
+        console.log(this.user); 
+    });
+
+    
+    }
+
 }

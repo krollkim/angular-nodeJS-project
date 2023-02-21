@@ -49,28 +49,25 @@ import { EditCustomerComponent } from './customers/edit-customer/edit-customer.c
     ReactiveFormsModule,
     HttpClientModule,
     RouterModule.forRoot(routes),
-    // SocialLoginModule,
+    SocialLoginModule,
   ],
   providers: [
     HttpService,
     UtilityService,
-    // {
-    //   provide: 'SocialAuthServiceConfig',
-    //   useValue: {
-    //     autoLogin: false,
-    //     providers: [
-    //       {
-    //         id: GoogleLoginProvider.PROVIDER_ID,
-    //         provider: new GoogleLoginProvider(
-    //           '239902827985-bogb1atkvdrsgdh219lh7l2dqlt9ao2t.apps.googleusercontent.com'
-    //         )
-    //       }
-    //     ],
-    //     onError: (err) => {
-    //       console.error(err);
-    //     }
-    //   } as SocialAuthServiceConfig,
-    // }
+    {
+      provide: 'SocialAuthServiceConfig',
+      useValue: {
+        autoLogin: false,
+        providers: [
+          {
+            id: GoogleLoginProvider.PROVIDER_ID,
+            provider: new GoogleLoginProvider(
+              '239902827985-bogb1atkvdrsgdh219lh7l2dqlt9ao2t.apps.googleusercontent.com'
+            ),
+          },
+        ],
+      } as SocialAuthServiceConfig,
+    },
   ],
   bootstrap: [AppComponent]
 })

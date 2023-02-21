@@ -4,7 +4,8 @@ import { User } from './user.interface';
 import { HttpService } from '../http.service';
 import { finalize } from 'rxjs/operators';
 import { Router } from '@angular/router';
-
+import { SocialAuthService } from '@abacritt/angularx-social-login';
+import { UtilityService } from '../Utilityservice';
 
 @Component({
   selector: 'app-signup',
@@ -12,6 +13,11 @@ import { Router } from '@angular/router';
   styleUrls: ['./signup.component.scss']
 })
 export class SignupComponent implements OnInit {
+
+  errorMessage?: string;
+  user?: any; 
+  loggedIn?: boolean; 
+
   signupForm = new FormGroup({
     fullName: new FormControl('',[
       Validators.required,
@@ -45,10 +51,23 @@ export class SignupComponent implements OnInit {
     });
 }
 
-constructor(private http: HttpService, private router: Router) { }
+constructor(private http: HttpService, private utility: UtilityService, private router: Router, private authService: SocialAuthService 
+  ) { }
 
 
-  ngOnInit(): void {
+ngOnInit(){
+
+  if(this.utility.getUser()){
+    this.router.navigate(['']);
   }
+
+  this.authService.authState.subscribe((user) => {
+    this.user = user;
+    this.loggedIn = (user != null);
+    if (this.loggedIn) {
+      this.router.navigate(['']);
+    }
+  });
+}
 
 }

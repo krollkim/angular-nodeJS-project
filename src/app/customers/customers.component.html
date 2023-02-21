@@ -34,8 +34,7 @@
         <th>notes</th>
         <th>edit</th>
         <th>delete</th>
-     </tr>
-       
+     </tr> 
     </thead>
 
     <tbody>
@@ -58,7 +57,8 @@
 
 <div *ngIf="displayMode == 'folder'">
     <div class="card-container">
-      <div class="card" *ngFor="let c of data | search : searchVal; let i = index">
+      <div class="card" *ngFor="let c of data | search : searchVal; let i = index" [routerLink]="['/','customers','edit-customer', c.id]">
+        <button class="btn" (click)="remove(c)">x</button>
         <div class="card-header">
           {{ c.firstName }}
         </div>
