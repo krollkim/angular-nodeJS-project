@@ -1,18 +1,25 @@
 <h1>customers</h1>
 
-<div class="displayMode">
+<!-- <div class="container">
+  <div class="displayMode">
     <label>
-        <input [(ngModel)]="displayMode" class="w3-radio" type="radio" name="displayMode" value="folder"> folder
+      <input [(ngModel)]="displayMode" class="w3-radio" type="radio" name="displayMode" value="folder"> folder
     </label>
     <label>
-        <input [(ngModel)]="displayMode" class="w3-radio" type="radio" name="displayMode" value="table"> table
+      <input [(ngModel)]="displayMode" class="w3-radio" type="radio" name="displayMode" value="table"> table
     </label>
     <label>
-        <input [(ngModel)]="displayMode" class="w3-radio" type="radio" name="displayMode" value="card"> card
+      <input [(ngModel)]="displayMode" class="w3-radio" type="radio" name="displayMode" value="card"> card
     </label>
+  </div>
+</div> -->
+<div class="container">
+  <div class="displayMode">
+    <i class="fa fa-folder icon-button" [class.active]="displayMode === 'folder'" (click)="displayMode = 'folder'"></i>
+    <i class="fa fa-table icon-button" [class.active]="displayMode === 'table'" (click)="displayMode = 'table'"></i>
+    <i class="fa fa-th icon-button" [class.active]="displayMode === 'card'" (click)="displayMode = 'card'"></i>
+  </div>
 </div>
-
-
 
 <div id="addCustomer">
     <input id="searchInput" type="search" [(ngModel)]="searchVal" placeholder="search">
@@ -56,14 +63,31 @@
 </table>
 
 <div *ngIf="displayMode == 'folder'">
+  <div class="folder-container">
+    <div class="folder" *ngFor="let c of data | search : searchVal; let i = index" [routerLink]="['/','customers','edit-customer', c.id]">
+      <button class="btn" (click)="remove(c)">x</button>
+      <div class="folder-header">
+        {{ c.firstName }}
+      </div>
+      <div class="folder-body">
+        <img src="./../../assets/images/png/folder.png" alt="Folder Icon">
+      </div>
+    </div>
+  </div>
+</div>
+
+<div *ngIf="displayMode == 'card'">
     <div class="card-container">
-      <div class="card" *ngFor="let c of data | search : searchVal; let i = index" [routerLink]="['/','customers','edit-customer', c.id]">
-        <button class="btn" (click)="remove(c)">x</button>
+      <div class="card" *ngFor="let c of data | search : searchVal; let i = index">
         <div class="card-header">
-          {{ c.firstName }}
+          {{ c.firstName }} {{ c.lastName }}
         </div>
         <div class="card-body">
-          <img src="./../../assets/images/png/folder.png" alt="Folder Icon">
+          <ul>
+            <li>phone: {{ c.phone }}</li>
+            <div class="border"></div>
+            <li>email: {{ c.email }}</li>
+          </ul>
         </div>
       </div>
     </div>

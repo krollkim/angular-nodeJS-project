@@ -106,6 +106,14 @@ a.BTN{
    float: right;
 
 }
+@media screen and (max-width: 623px) {
+    a.BTN {
+        color: rgb(255, 255, 255);
+        background-color: #823666;
+        width: 100%;
+    }
+}
+
 @media screen and (min-width: 650px) {
     .welcome {
         color: rgb(255, 255, 255);
