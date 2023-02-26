@@ -1,18 +1,6 @@
+<!-- display functionality -->
+<div *ngIf="utility.getUser()">
 <h1>customers</h1>
-
-<!-- <div class="container">
-  <div class="displayMode">
-    <label>
-      <input [(ngModel)]="displayMode" class="w3-radio" type="radio" name="displayMode" value="folder"> folder
-    </label>
-    <label>
-      <input [(ngModel)]="displayMode" class="w3-radio" type="radio" name="displayMode" value="table"> table
-    </label>
-    <label>
-      <input [(ngModel)]="displayMode" class="w3-radio" type="radio" name="displayMode" value="card"> card
-    </label>
-  </div>
-</div> -->
 <div class="container">
   <div class="displayMode">
     <i class="fa fa-folder icon-button" [class.active]="displayMode === 'folder'" (click)="displayMode = 'folder'"></i>
@@ -21,14 +9,16 @@
   </div>
 </div>
 
+<!-- adding contact button and search bar -->
 <div id="addCustomer">
     <input id="searchInput" type="search" [(ngModel)]="searchVal" placeholder="search">
     <button class="w3-btn w3-green w3-round" routerLink="/create-customer">add customer <i class="fa fa-plus"></i></button>
 </div>
 
-
+<!-- display mode table -->
 <br>
-<table *ngIf="displayMode == 'table'">
+<div class="tableScroll">
+  <table *ngIf="displayMode == 'table'">
     <thead>
      <tr>
         <th>#</th>
@@ -46,7 +36,7 @@
 
     <tbody>
         
-        <tr *ngFor="let c of data | search : searchVal; let i = index">
+        <tr (dblclick)="navigateCustomer(c)" *ngFor="let c of data | search : searchVal; let i = index">
             <td>{{  i + 1 }}</td>
             <td>{{ c.firstName }}</td>
             <td>{{ c.lastName }}</td>
@@ -61,11 +51,13 @@
         
     </tbody>
 </table>
+</div>
 
+<!-- display mode folder -->
 <div *ngIf="displayMode == 'folder'">
   <div class="folder-container">
     <div class="folder" *ngFor="let c of data | search : searchVal; let i = index" [routerLink]="['/','customers','edit-customer', c.id]">
-      <button class="btn" (click)="remove(c)">x</button>
+      <button class="btn" (click)="remove(c)"><i class="fa fa-trash"></i></button>
       <div class="folder-header">
         {{ c.firstName }}
       </div>
@@ -76,11 +68,12 @@
   </div>
 </div>
 
+<!-- display mode card -->
 <div *ngIf="displayMode == 'card'">
     <div class="card-container">
       <div class="card" *ngFor="let c of data | search : searchVal; let i = index">
         <div class="card-header">
-          {{ c.firstName }} {{ c.lastName }}
+          {{ c.firstName }} - {{ c.lastName }}
         </div>
         <div class="card-body">
           <ul>
@@ -92,3 +85,4 @@
       </div>
     </div>
   </div>
+</div>

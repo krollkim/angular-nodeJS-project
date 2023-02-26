@@ -1,11 +1,21 @@
+// table 
 table {
     border: 1px solid;
     border-collapse: collapse;
     text-align: center;
     margin: auto;
     max-width: 100%;
+    min-width: 280px;
   }
-  
+  .tableScroll{
+    width: 100%;
+    overflow-x: auto;
+  }
+  @media only screen and (max-width: 767px) {
+    table {
+      overflow-x: auto;
+    }
+  }
   th, td {
     border: 1px solid;
     padding: 8px;
@@ -19,7 +29,8 @@ table {
   h1, p {
     text-align: center;
   }
-  
+
+  // adding button + view buttons + search bar
   #addCustomer {
     display: flex;
     align-items: center;
@@ -73,15 +84,8 @@ table {
     padding: 8px;
     cursor: pointer;
   }
-  
- 
-  
-  @media screen and (max-width: 768px) {
-    th, td {
-      padding: 6px;
-      font-size: 14px;
-    }
-  }
+
+// folder view option
 .parent-container {
     text-align: center;
 }
@@ -135,6 +139,8 @@ table {
     max-width: 170px;
   }
 }
+
+// card view option
   .card-container {
     margin: 0 auto;
     max-width: 800px;
@@ -230,6 +236,14 @@ table {
     color: #fff;
   }
   
+  // responsive media queries
+  @media screen and (max-width: 768px) {
+    th, td {
+      padding: 6px;
+      font-size: 14px;
+    }
+  }
+
   @media screen and (max-width: 768px) {
     .displayMode {
       font-size: 1rem;

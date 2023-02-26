@@ -23,6 +23,13 @@ import { SocialLoginModule, SocialAuthServiceConfig } from '@abacritt/angularx-s
 import { GoogleLoginProvider } from '@abacritt/angularx-social-login';
 import { SearchPipe } from './search.pipe';
 import { EditCustomerComponent } from './customers/edit-customer/edit-customer.component';
+import { ContactsComponent } from './contacts/contacts.component';
+import { CreateContactComponent } from './contacts/create-contact/create-contact.component';
+import { EditContactComponent } from './contacts/edit-contact/edit-contact.component';
+import { AgePipe } from './age.pipe';
+import { DatePipe } from '@angular/common';
+
+
 
 
 @NgModule({
@@ -41,7 +48,11 @@ import { EditCustomerComponent } from './customers/edit-customer/edit-customer.c
      CustomersComponent,
      CreateCustomerComponent,
      SearchPipe,
+     AgePipe,
      EditCustomerComponent,
+     ContactsComponent,
+     CreateContactComponent,
+     EditContactComponent,
   ],
   imports: [
     BrowserModule,
@@ -54,6 +65,7 @@ import { EditCustomerComponent } from './customers/edit-customer/edit-customer.c
   providers: [
     HttpService,
     UtilityService,
+    DatePipe,
     {
       provide: 'SocialAuthServiceConfig',
       useValue: {

@@ -45,14 +45,13 @@ export class CreateCustomerComponent {
   
 
   add(){
-    const sub = this.http.post<Customers[]>("Customers", this.customerForm.value).pipe(finalize(() => {
+    const sub = this.http.post<Customers[]>("customer", this.customerForm.value).pipe(finalize(() => {
         if (sub?.unsubscribe) {
             sub.unsubscribe();
         }
     })).subscribe(data => {
         this.isSended = true;
-        this.router.navigate(['/customers']);
-        console.log(data);
+        this.router.navigate(['/']);
         
     });
   }

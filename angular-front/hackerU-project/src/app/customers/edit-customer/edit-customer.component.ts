@@ -15,6 +15,7 @@ export class EditCustomerComponent {
   sub?: Subscription;
   editForm?: FormGroup;
 
+  // form and group controls
   buildForm(item?: Customers) {
     this.editForm = new FormGroup({
       firstName: new FormControl(item?.firstName, [
@@ -37,6 +38,7 @@ export class EditCustomerComponent {
     });
 }
 
+// updating Customer using id
   updateCustomer() {
     const customerId = this.customer?.id;
   if (!customerId) {
@@ -51,6 +53,7 @@ return(){
   this.router.navigate(["/"]);
 }
 
+// getting Customer using id
 getCustomer(id: string) {
     const sub = this.http.get<Customers>(`customers/${id}`).subscribe(item => {
       this.customer = item;

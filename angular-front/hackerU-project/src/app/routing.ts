@@ -1,5 +1,8 @@
 import { Routes } from "@angular/router";
 import { AboutComponent } from "./about/about.component";
+import { ContactsComponent } from "./contacts/contacts.component";
+import { CreateContactComponent } from "./contacts/create-contact/create-contact.component";
+import { EditContactComponent } from "./contacts/edit-contact/edit-contact.component";
 import { CreateCustomerComponent } from "./customers/create-customer/create-customer.component";
 import { CustomersComponent } from "./customers/customers.component";
 import { EditCustomerComponent } from "./customers/edit-customer/edit-customer.component";
@@ -21,9 +24,15 @@ export const routes: Routes = [
     { path: 'tasks', component: TasksComponent },
     { path: 'recycle-bin', component: RecycleBinComponent },
     { path: 'task/:id', component: TaskEditComponent },
+
     { path: '', component: CustomersComponent },
     { path: 'create-customer', component: CreateCustomerComponent },
     { path: 'customers/edit-customer/:id', component: EditCustomerComponent},
+
+    { path: 'contacts', component: ContactsComponent},
+    { path: 'create-contact', component: CreateContactComponent},
+    { path: 'contacts/edit-contact/:id', component: EditContactComponent},
+
     { path: 'about', component: AboutComponent },
     { path: '**', component: ErrorPageComponent },
 

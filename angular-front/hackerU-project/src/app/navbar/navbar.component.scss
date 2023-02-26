@@ -1,3 +1,4 @@
+// logos design
 #logoImg{
     width: 70px; 
 }
@@ -9,6 +10,8 @@
 #logoImg,#logoImg2:hover{
 cursor: pointer;
 }
+
+// top navbar
 nav.navbar {
     background: #823666;
     color: white;
@@ -29,6 +32,8 @@ nav.navbar {
         background-color: #d876f647;
     }
 }
+
+// side navbar
 nav.sideNavbar{
     background: #310822;
     color: white;
@@ -71,6 +76,7 @@ nav.sideNavbar{
     
 }
  
+// hamburger navbar icon
 .container {
     cursor: pointer;
     margin: 10px;
@@ -99,6 +105,7 @@ nav.sideNavbar{
     transform: translate(0, -11px) rotate(45deg);
 }
 
+// login signup buttons
 [hidden] {
     display: none !important;
 }
@@ -106,6 +113,8 @@ a.BTN{
    float: right;
 
 }
+
+// responsive media queries
 @media screen and (max-width: 623px) {
     a.BTN {
         color: rgb(255, 255, 255);
@@ -114,7 +123,7 @@ a.BTN{
     }
 }
 
-@media screen and (min-width: 650px) {
+@media screen and (min-width: 755px) {
     .welcome {
         color: rgb(255, 255, 255);
         margin-bottom: -16px;
@@ -204,7 +213,7 @@ a.BTN{
     
 }
 
-
+// footer design
 .footer{
     width: 50px;
     height: 50px;

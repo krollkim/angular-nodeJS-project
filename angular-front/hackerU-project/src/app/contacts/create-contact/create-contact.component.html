@@ -1,0 +1,41 @@
+
+<p *ngIf="isSended">הטופס נשלח בהצלחה</p>
+<form *ngIf="!isSended" [formGroup]="contactForm">
+    <div class="field">
+        <label>first name:</label>
+        <input class="w3-input w3-border w3-round" type="text" formControlName="firstName">
+    </div>
+    <div class="field">
+        <label>last name:</label>
+        <input class="w3-input w3-border w3-round" type="text" formControlName="lastName">
+    </div>
+    <div class="field">
+        <label>age:</label>
+        <input class="w3-input w3-border w3-round" type="date" formControlName="birthday">
+    </div>
+    <div class="field">
+        <label>email:</label>
+        <input class="w3-input w3-border w3-round" type="text" formControlName="email">
+    </div>
+    <div class="field">
+        <label>phone:</label>
+        <input class="w3-input w3-border w3-round" type="text" formControlName="phone">
+    </div>
+    <div class="field">
+        <label>state:</label>
+        <input class="w3-input w3-border w3-round" type="text" formControlName="state">
+    </div>
+    <div class="field">
+        <label>city:</label>
+        <input class="w3-input w3-border w3-round" type="text" formControlName="city">
+    </div>
+    <div class="field">
+        <label>street:</label>
+        <input class="w3-input w3-border w3-round" type="text" formControlName="street">
+    </div>
+    <div class="field">
+        <label>postal code:</label>
+        <input class="w3-input w3-border w3-round" type="text" formControlName="postalCode">
+    </div>
+    <button class="w3-btn w3-green w3-round w3-block" [disabled]="!contactForm.valid" routerLink="/contacts" (click)="add()">add <i class="fa fa-save"></i></button>
+</form>

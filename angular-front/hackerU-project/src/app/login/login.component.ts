@@ -33,6 +33,7 @@ export class LoginComponent implements OnInit {
 
   });
 
+  
   login() {
     this.errorMessage = '';
 
@@ -53,6 +54,7 @@ export class LoginComponent implements OnInit {
 }
 constructor(private http: HttpService, private utility: UtilityService, private router: Router, private authService: SocialAuthService 
 ) { }
+
   ngOnInit(){
 
     if(this.utility.getUser()){
@@ -60,21 +62,23 @@ constructor(private http: HttpService, private utility: UtilityService, private 
     }
 
     this.authService.authState.subscribe((user) => {
-      this.user = user;
-      this.loggedIn = (user != null);
-      if (this.loggedIn) {
-        this.router.navigate(['']);
-      }
-      const sub = this.http.post('googleLogin', this.user).subscribe(data => {
-
-          this.utility.setUser(this.user);
-          this.router.navigate(['']);
-        
-      })
-        console.log(this.user); 
-    });
-
     
-    }
+      this.errorMessage = '';
 
+    const sub = this.http.post<Userlogin>('googleLogin', user).pipe(finalize(() => {
+        if (sub?.unsubscribe) {
+            sub.unsubscribe();
+        }
+    })).subscribe(data => {
+        if(data.status == 'error'){
+          this.errorMessage = data.message;
+        }
+        else{
+          this.utility.setUser(data.user);
+          this.router.navigate(['']);
+        }
+        
+      });
+    });
+  }
 }

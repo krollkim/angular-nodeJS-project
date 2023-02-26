@@ -14,9 +14,9 @@ export class RecycleBinComponent implements OnInit {
   data: Task[] = [];
   
   returnTask(item: Task){
-    const sub = this.http.put<Task[]>(`tasks/${item.id}`, {}).subscribe(() => {
+    const sub = this.http.put<Task[]>(`tasks/restore/${item.id}`, {}).subscribe(() => {
     item.isDeleted = false;
-    console.log(item);
+    
     
     sub.unsubscribe();
      });

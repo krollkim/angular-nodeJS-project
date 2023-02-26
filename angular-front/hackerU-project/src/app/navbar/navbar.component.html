@@ -1,3 +1,4 @@
+<!-- top navbar -->
 <nav class="navbar">
 
   <img [routerLink]="'/'" id="logoImg" src="../../assets/images/png/logo-no-background.png" alt="logo">
@@ -8,9 +9,10 @@
     <div class="bar3"></div>
   </div>
 
+  
     <a class="aNav" *ngFor="let item of menu" 
-    [hidden]="item.loginRequired && utility.getUser()"
-    [class.BTN]="item.loginRequired"
+    [hidden]="(item.loginState && utility.getUser()) || (item.logOutState && !utility.getUser())"
+    [class.BTN]="item.loginState"
     [routerLink]="item.route"
     [class.navActive]="active == item.route">
     <i class="fa fa-{{ item.icon }}"></i>
@@ -25,10 +27,11 @@
     </div>
 </nav>
 
+<!-- side navbar -->
 <nav *ngIf="utility.getUser()" class="sideNavbar" [class.open]="isOpen">
     <a *ngFor="let item of menu" 
-    [hidden]="item.loginRequired && utility.getUser()"
-    [class.BTN]="item.loginRequired"
+    [hidden]="item.loginState && utility.getUser()"
+    [class.BTN]="item.loginState"
     [routerLink]="item.route"
     [class.navActive]="active == item.route">
     <i class="fa fa-{{ item.icon }}"></i>

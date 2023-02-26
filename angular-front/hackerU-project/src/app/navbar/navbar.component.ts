@@ -14,27 +14,30 @@ export class NavbarComponent implements OnInit {
   active?: string;
   isOpen: boolean = false
 
+  // top navbar
   menu: Nav[] = [
 
-    { route: '/home', title: 'home', icon: 'home' },
-    { route: '/tasks', title: 'tasks', icon: 'check-square-o'},
-    { route: '/', title: 'customers', icon: ' fa fa-group' },
+    { route: '/home', title: 'home', icon: 'home', logOutState: true },
+    { route: '/tasks', title: 'tasks', icon: 'check-square-o', logOutState: true},
+    { route: '/', title: 'customers', icon: ' fa fa-group', logOutState: true },
+    { route: '/contacts', title: 'contacts', icon: ' fa fa-phone', logOutState: true },
     { route: '/about', title: 'about', icon: '	fa fa-info' },
-    {route: '/login', title: 'login', icon: ' fa fa-group', loginRequired: true},
-    {route: '/signup', title: 'signup', icon: '	fa fa-pencil-square-o', loginRequired: true},
+    {route: '/login', title: 'login', icon: ' fa fa-group', loginState: true},
+    {route: '/signup', title: 'signup', icon: '	fa fa-pencil-square-o', loginState: true},
 ];
 
+// side navbar
 sideBar: Nav[] = [
   ...this.menu,
   { route: '/', title: 'home', icon: 'home' },
   { route: '/tasks', title: 'tasks', icon: 'check-square-o'},
   { route: '/customers', title: 'customers', icon: ' fa fa-group' },
   { route: '/about', title: 'about', icon: '	fa fa-info' },
-  {route: '/login', title: 'login', icon: ' fa fa-group', loginRequired: true},
-  {route: '/signup', title: 'signup', icon: '	fa fa-pencil-square-o', loginRequired: true},
+  {route: '/login', title: 'login', icon: ' fa fa-group', loginState: true},
+  {route: '/signup', title: 'signup', icon: '	fa fa-pencil-square-o', loginState: true},
 ];
 
-
+   // logout function using utility service, clearing the session and seting that there is no user connected
    logout() {
     const sub = this.http.get("logout").pipe(finalize(() => {
         if (sub?.unsubscribe) {

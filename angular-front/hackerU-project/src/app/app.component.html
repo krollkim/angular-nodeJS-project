@@ -4,7 +4,10 @@
         <app-navbar></app-navbar>
         <router-outlet></router-outlet>
         
-
+        <div class="loaderFrame" *ngIf="utility.isLoader">
+            <div class="loader"></div>
+        </div>
+        
     <footer class="footer">
         <h2><i class=" fa fa-copyright"></i> Copyright 2023 by KimKroll, all rights reserved.</h2>
     </footer> 

@@ -17,6 +17,7 @@ export class CustomersComponent {
   customer?: string;
   searchVal?: any;
 
+   // reseting all data before using to add data
   addedCustomer: Customers = {
       id: 0,
       firstName: '',
@@ -29,25 +30,32 @@ export class CustomersComponent {
       isDeleted: false,
   }
 
+   // displayMode content and options
   displayMode: 'card' | 'table' | 'folder' = 'table';
 
- 
+ // adding customers using post method
   addCustomer(){
     const sub =  this.http.post<Customers[]>("Customers", {customer: this.newCustomer}).subscribe(data => {
-        this.data = data;
-        console.log(data);
-        
+        this.data = data;    
     });
  }
 
+ // removing contacts with id
  remove(c: Customers){
   const sub = this.http.delete<void>(`Customers/${c.id}`).subscribe(() => {
     const i = this.data.findIndex(x => x.id === c.id);
     this.data.splice(i, 1);
-    console.log(c.id);
+   
     sub.unsubscribe();
      });
  }
+
+ 
+ // to double click a contact and navigate to his full data   
+ navigateCustomer(c: Customers){
+  this.router.navigate(['/','customers','edit-customer', c.id]);
+ }
+ 
  constructor(private http: HttpService, private router: Router, public utility: UtilityService) { }
 
  ngOnInit(): void {

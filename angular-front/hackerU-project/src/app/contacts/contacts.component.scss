@@ -1,0 +1,268 @@
+// table 
+table {
+  border: 1px solid;
+  border-collapse: collapse;
+  text-align: center;
+  margin: auto;
+  max-width: 100%;
+  min-width: 280px;
+}
+.tableScroll{
+  width: 100%;
+  overflow-x: auto;
+}
+@media only screen and (max-width: 767px) {
+  table {
+    overflow-x: auto;
+  }
+}
+th, td {
+  border: 1px solid;
+  padding: 8px;
+  font-size: 16px;
+}
+
+tr:nth-child(even) {
+  background-color: rgba(162, 161, 161, 0.491);
+}
+
+h1, p {
+  text-align: center;
+}
+
+// adding button + view buttons + search bar
+#addContact {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: auto;
+  flex-wrap: wrap;
+}
+
+#searchInput {
+  display: block;
+  margin: 10px;
+  width: 300px;
+  padding: 8px;
+  border: 1px solid;
+  font-size: 15px;
+  border-radius: 3px;
+}
+
+#searchButton {
+  color: black;
+  padding: 8px;
+  cursor: pointer;
+  background-color: rgba(162, 161, 161, 0.491);
+  border: 1px solid;
+  font-size: 16px;
+}
+
+#searchButton i {
+  margin-right: 5px;
+}
+
+#addButton {
+  color: black;
+  padding: 8px;
+  cursor: pointer;
+  background-color: rgba(162, 161, 161, 0.491);
+  border: 1px solid;
+  font-size: 16px;
+  margin: 10px;
+}
+#addContact button i {
+  margin-right: 5px;
+}
+
+#searchInput:focus {
+  outline: 1px solid black;
+}
+
+button {
+  color: black;
+  padding: 8px;
+  cursor: pointer;
+}
+
+
+// folder view option
+.parent-container {
+  text-align: center;
+}
+.folder-container {
+margin: 0 auto;
+max-width: 800px;
+}
+
+.folder {
+display: inline-block;
+margin: 10px;
+width: 170px;
+background-color: #fff;
+box-shadow: 0 2px 4px rgba(0, 0, 0, .1);
+border-radius: 8px;
+overflow: hidden;
+transition: transform .3s ease;
+}
+
+.folder:hover {
+transform: translateY(-5px);
+}
+
+.folder-header {
+padding: 20px;
+font-size: 18px;
+font-weight: bold;
+color: #333;
+text-align: center;
+}
+
+.folder-body {
+padding: 20px;
+text-align: center;
+}
+
+.folder-body img {
+max-width: 100%;
+height: auto;
+}
+
+@media screen and (max-width: 768px) {
+  .folder-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .folder {
+    width: 100%;
+    max-width: 170px;
+  }
+}
+
+// card view option
+.card-container {
+  margin: 0 auto;
+  max-width: 800px;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.card {
+  margin: 10px;
+  flex: 1 1 200px;
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, .1);
+  border-radius: 8px;
+  overflow: hidden;
+  transition: transform .3s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+}
+
+.card-header {
+  padding: 20px;
+  font-size: 18px;
+  font-weight: bold;
+  color: #333;
+  text-align: center;
+}
+
+.card-body {
+  padding: 20px;
+  text-align: center;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.card-body ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.card-body li {
+  margin-bottom: 10px;
+}
+.btn{
+  color: red;
+  border: none;
+  background: none;
+  font-weight: 700;
+  float: right;
+}
+.border{
+  border-bottom: 1px solid gray;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+}
+
+.displayMode {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  margin-top: 1rem;
+}
+
+.icon-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 50px;
+  height: 50px;
+  border: none;
+  border-radius: 10px;
+  background-color: #fff;
+  color: rgb(0, 0, 0);
+  font-size: 2rem;
+  text-align: center;
+  margin-right: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+
+.icon-button:hover,
+.icon-button.active {
+  background-color: #ccc;
+  color: #fff;
+}
+
+// responsive media queries
+@media screen and (max-width: 768px) {
+  th, td {
+    padding: 6px;
+    font-size: 14px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .displayMode {
+    font-size: 1rem;
+  }
+
+  .icon-button {
+    width: 40px;
+    height: 40px;
+    font-size: 1.5rem;
+    margin-right: 0.5rem;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .icon-button {
+    width: 30px;
+    height: 30px;
+    font-size: 1rem;
+    margin-right: 0.5rem;
+  }
+}

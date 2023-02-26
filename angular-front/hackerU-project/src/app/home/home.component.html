@@ -1,13 +1,15 @@
-<h1>{{ title | uppercase }}</h1>
 
-<h2>{{ welcome | titlecase}}</h2>
+<div *ngIf="utility.getUser()">
+  <h1>{{ title | uppercase }}</h1>
 
+  <h2>{{ welcome | titlecase}}</h2>
+</div>
 
 <div *ngIf="!utility.getUser()">
     <router-outlet></router-outlet>
 </div>
 
-<div *ngIf="utility.getUser()" class="w3-row">
+<div class="w3-row">
     <div class="w3-third" *ngFor="let s of statuses">
       <div class="w3-card w3-round" [style.background-color]="s.color">
         <h4>{{ s.title }}</h4>

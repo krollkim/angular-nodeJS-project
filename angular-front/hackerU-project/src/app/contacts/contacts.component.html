@@ -1,0 +1,84 @@
+<!-- display functionality -->
+<div *ngIf="utility.getUser()">
+    <h1>contacts</h1>
+    <div class="container">
+      <div class="displayMode">
+        <i class="fa fa-folder icon-button" [class.active]="displayMode === 'folder'" (click)="displayMode = 'folder'"></i>
+        <i class="fa fa-table icon-button" [class.active]="displayMode === 'table'" (click)="displayMode = 'table'"></i>
+        <i class="fa fa-th icon-button" [class.active]="displayMode === 'card'" (click)="displayMode = 'card'"></i>
+      </div>
+    </div>
+    
+    <!-- adding contact button and search bar -->
+    <div id="addContact">
+        <input id="searchInput" type="search" [(ngModel)]="searchVal" placeholder="search">
+        <button class="w3-btn w3-green w3-round" routerLink="/create-contact">add contact <i class="fa fa-plus"></i></button>
+    </div>
+    
+    <!-- display mode table -->
+    <br>
+    <div class="tableScroll">
+    <table *ngIf="displayMode == 'table'">
+        <thead>
+         <tr>
+            <th>#</th>
+            <th>first name</th>
+            <th>last name</th>
+            <th>age</th>
+            <th>email</th>
+            <th>phone</th>
+            <th>edit</th>
+            <th>delete</th>
+         </tr> 
+        </thead>
+    
+        <tbody>
+            
+            <tr (dblclick)="navigateContact(c)" *ngFor="let c of contactData | search : searchVal; let i = index">
+                <td>{{  i + 1 }}</td>
+                <td>{{ c.firstName }}</td>
+                <td>{{ c.lastName }}</td>
+                <td>{{ c.birthday | age }}</td>
+                <td>{{ c.email }}</td>
+                <td>{{ c.phone }}</td>
+                <td><button class="w3-btn w3-green w3-round"><i class="	fa fa-edit" [routerLink]="['/','contacts','edit-contact', c.id]"></i></button></td>
+                <td><button class="w3-btn w3-red w3-round" (click)="remove(c)">x</button></td>
+            </tr>
+            
+        </tbody>
+    </table>
+</div>
+
+  <!-- display mode folder -->
+    <div *ngIf="displayMode == 'folder'">
+      <div class="folder-container">
+        <div class="folder" *ngFor="let c of contactData | search : searchVal; let i = index" [routerLink]="['/','contacts','edit-contact', c.id]">
+          <button class="btn" (click)="remove(c)">x</button>
+          <div class="folder-header">
+            {{ c.firstName }}
+          </div>
+          <div class="folder-body">
+            <img src="./../../assets/images/png/folder.png" alt="Folder Icon">
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- display mode card -->
+    <div *ngIf="displayMode == 'card'">
+        <div class="card-container">
+          <div class="card" *ngFor="let c of contactData | search : searchVal; let i = index">
+            <div class="card-header">
+              {{ c.firstName }} - {{ c.lastName }}
+            </div>
+            <div class="card-body">
+              <ul>
+                <li>phone: {{ c.phone }}</li>
+                <div class="border"></div>
+                <li>email: {{ c.email }}</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
