@@ -19,3 +19,15 @@ color: #005B60;
         margin: 30px;
         margin-right: 8px;
       }
+
+      .routing{
+        text-align: center;
+      }
+      
+      input.ng-dirty.ng-invalid{
+        border: 1px solid red !important;
+      }
+
+      .validField{
+        color: red;
+      }

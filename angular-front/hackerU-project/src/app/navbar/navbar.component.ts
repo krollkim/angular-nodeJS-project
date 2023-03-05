@@ -22,7 +22,7 @@ export class NavbarComponent implements OnInit {
     { route: '/', title: 'customers', icon: ' fa fa-group', logOutState: true },
     { route: '/contacts', title: 'contacts', icon: ' fa fa-phone', logOutState: true },
     { route: '/about', title: 'about', icon: '	fa fa-info' },
-    {route: '/login', title: 'login', icon: ' fa fa-group', loginState: true},
+    {route: '/login', title: 'login', icon: ' fa fa-sign-in', loginState: true},
     {route: '/signup', title: 'signup', icon: '	fa fa-pencil-square-o', loginState: true},
 ];
 

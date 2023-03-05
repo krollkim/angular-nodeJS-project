@@ -36,7 +36,7 @@ export class CreateCustomerComponent {
               Validators.maxLength(30),
           ]),
           address: new FormControl('', [
-            
+            Validators.required,
           ]),
           notes: new FormControl('', [
               

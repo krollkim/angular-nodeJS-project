@@ -4,11 +4,13 @@
     <div class="field">
         <label><i class="fa fa-user"></i>user name:</label>
         <input class="w3-input w3-border w3-round" type="text" formControlName="userName">
+        <div class="validField" *ngIf="loginForm.controls.userName.touched && loginForm.controls.userName.status == 'INVALID'">invalid field</div>
     </div>
 
     <div class="field">
         <label><i class="fa fa-asterisk"></i>password:</label>
         <input class="w3-input w3-border w3-round" type="text" formControlName="password">
+        <div class="validField" *ngIf="loginForm.controls.password.touched && loginForm.controls.password.status == 'INVALID'">invalid field</div>
     </div>
 
     <div *ngIf="errorMessage" class="w3-container w3-red">{{ errorMessage }}</div>
@@ -27,7 +29,7 @@
     </div>
 </div>
     </div>
-    <p>
+    <p class="routing">
         <a routerLink="/signup">create new account</a>
     </p>
 </form>

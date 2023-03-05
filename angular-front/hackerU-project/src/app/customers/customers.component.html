@@ -20,15 +20,15 @@
 <div class="tableScroll">
   <table *ngIf="displayMode == 'table'">
     <thead>
-     <tr>
+     <tr class="thStyle">
         <th>#</th>
         <th>first name</th>
         <th>last name</th>
         <th>email</th>
         <th>phone</th>
-        <th>address</th>
+        <!-- <th>address</th> -->
         <th>created at</th>
-        <th>notes</th>
+        <!-- <th>notes</th> -->
         <th>edit</th>
         <th>delete</th>
      </tr> 
@@ -42,9 +42,9 @@
             <td>{{ c.lastName }}</td>
             <td>{{ c.email }}</td>
             <td>{{ c.phone }}</td>
-            <td>{{ c.address }}</td>
+            <!-- <td>{{ c.address }}</td> -->
             <td>{{ c.createdAt | date : 'dd/MM/yyyy' }}</td>
-            <td>{{ c.notes }}</td>
+            <!-- <td>{{ c.notes }}</td> -->
             <td><button class="w3-btn w3-green w3-round"><i class="	fa fa-edit" [routerLink]="['/','customers','edit-customer', c.id]"></i></button></td>
             <td><button class="w3-btn w3-red w3-round" (click)="remove(c)">x</button></td>
         </tr>

@@ -15,6 +15,7 @@ export class EditContactComponent {
   contact?: Contacts;
   sub?: Subscription;
   editForm?: FormGroup;
+  isReturened?: boolean;
 
   // form and group controls
   buildForm(item?: Contacts) {
@@ -61,11 +62,20 @@ export class EditContactComponent {
         sub.unsubscribe(); 
     });
 }
+// reseting the data to the defined values
+reset(){
+  if(this.isReturened) {
+    this.getContact(this.contact?.id)
+  }else {
+      this.buildForm();
+  }
+}
+// returning to main page
 return(){
   this.router.navigate(["/"]);
 }
-// getting Contacts function
-getContact(id: string) {
+// getting Contact using id
+getContact(id?: string | number) {
     const sub = this.http.get<Contacts>(`contacts/${id}`).subscribe(item => {
       this.contact = item;
       this.buildForm(item);
@@ -77,9 +87,11 @@ getContact(id: string) {
   constructor(private route: ActivatedRoute, private http: HttpService, private router: Router, private date: DatePipe) {
 
     this.sub = this.route.params.subscribe(params => {
+      this.isReturened = true;
         if (params['id']) {
             this.getContact(params['id']);
         } else {
+          this.isReturened = false;
             this.buildForm();
         }
     });

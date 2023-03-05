@@ -1,4 +1,4 @@
-<form *ngIf="editForm" [formGroup]="editForm">
+<form *ngIf="editForm" [formGroup]="editForm" >
   <div class="field">
     <label>first name:</label>
     <input class="w3-input w3-border w3-round" type="text" formControlName="firstName">
@@ -35,8 +35,9 @@
     <label>postal code:</label>
     <input class="w3-input w3-border w3-round" type="text" formControlName="postalCode">
 </div>
-    <button class="w3-btn w3-green w3-round w3-block w3-border" (click)="updateContact()">Save update</button>
-    <button class="w3-btn w3-red w3-round w3-block w3-border" (click)="return()">return</button>
+    <button class="w3-btn w3-green w3-round w3-block w3-border" (click)="updateContact()">Save update <i class="fa fa-save"></i></button>
+    <button  class="w3-button w3-grey w3-round w3-block w3-border" (click)="reset()">reset <i class="fa fa-refresh"></i></button>
+    <button class="w3-btn w3-red w3-round w3-block w3-border" (click)="return()">return <i class="	fa fa-sign-out"></i></button>
 
   </form>
 

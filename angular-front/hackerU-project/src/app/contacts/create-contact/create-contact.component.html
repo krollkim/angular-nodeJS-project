@@ -2,39 +2,39 @@
 <p *ngIf="isSended">הטופס נשלח בהצלחה</p>
 <form *ngIf="!isSended" [formGroup]="contactForm">
     <div class="field">
-        <label>first name:</label>
+        <label><i class="fa fa-asterisk w3-text-red"></i> first name:</label>
         <input class="w3-input w3-border w3-round" type="text" formControlName="firstName">
     </div>
     <div class="field">
-        <label>last name:</label>
+        <label><i class="fa fa-asterisk w3-text-red"></i> last name:</label>
         <input class="w3-input w3-border w3-round" type="text" formControlName="lastName">
     </div>
     <div class="field">
-        <label>age:</label>
+        <label><i class="fa fa-asterisk w3-text-red"></i> age:</label>
         <input class="w3-input w3-border w3-round" type="date" formControlName="birthday">
     </div>
     <div class="field">
-        <label>email:</label>
+        <label><i class="fa fa-asterisk w3-text-red"></i> email:</label>
         <input class="w3-input w3-border w3-round" type="text" formControlName="email">
     </div>
     <div class="field">
-        <label>phone:</label>
+        <label><i class="fa fa-asterisk w3-text-red"></i> phone:</label>
         <input class="w3-input w3-border w3-round" type="text" formControlName="phone">
     </div>
     <div class="field">
-        <label>state:</label>
+        <label><i class="fa fa-asterisk w3-text-red"></i> state:</label>
         <input class="w3-input w3-border w3-round" type="text" formControlName="state">
     </div>
     <div class="field">
-        <label>city:</label>
+        <label><i class="fa fa-asterisk w3-text-red"></i> city:</label>
         <input class="w3-input w3-border w3-round" type="text" formControlName="city">
     </div>
     <div class="field">
-        <label>street:</label>
+        <label><i class="fa fa-asterisk w3-text-red"></i> street:</label>
         <input class="w3-input w3-border w3-round" type="text" formControlName="street">
     </div>
     <div class="field">
-        <label>postal code:</label>
+        <label><i class="fa fa-asterisk w3-text-red"></i> postal code:</label>
         <input class="w3-input w3-border w3-round" type="text" formControlName="postalCode">
     </div>
     <button class="w3-btn w3-green w3-round w3-block" [disabled]="!contactForm.valid" routerLink="/contacts" (click)="add()">add <i class="fa fa-save"></i></button>

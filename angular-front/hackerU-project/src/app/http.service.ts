@@ -11,8 +11,11 @@ export class HttpService {
     private readonly url = 'http://localhost:3000';
     private readonly options = { withCredentials: true };
 
-    get<T>(path: string){
-        this.utility.loader(true);
+
+    get<T>(path: string) {
+        setTimeout(() => {
+            this.utility.loader(true);
+        });
 
         return this.httpClient.get<T>(`${this.url}/${path}`, this.options).pipe(finalize(() => {
             this.utility.loader(false);

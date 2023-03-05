@@ -20,8 +20,6 @@ export function logout(req, res) {
 
 export function googleLogin(req, res) {
 
-    // (אימות מול גוגל)
-
     con.query("SELECT * FROM `users` WHERE `email`=?", [req.body.email], (err, result) => {
         if (err) {
             console.log(err);

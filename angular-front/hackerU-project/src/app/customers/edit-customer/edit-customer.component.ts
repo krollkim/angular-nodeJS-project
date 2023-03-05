@@ -14,6 +14,7 @@ export class EditCustomerComponent {
   customer?: Customers;
   sub?: Subscription;
   editForm?: FormGroup;
+  isReturened?: boolean;
 
   // form and group controls
   buildForm(item?: Customers) {
@@ -49,12 +50,20 @@ export class EditCustomerComponent {
         sub.unsubscribe(); 
     });
 }
+// returning to main page
 return(){
   this.router.navigate(["/"]);
 }
-
+// reseting the data to the defined values
+reset(){
+  if(this.isReturened) {
+    this.getCustomer(this.customer?.id)
+  }else {
+      this.buildForm();
+  }
+}
 // getting Customer using id
-getCustomer(id: string) {
+getCustomer(id?: string | number) {
     const sub = this.http.get<Customers>(`customers/${id}`).subscribe(item => {
       this.customer = item;
       this.buildForm(item);
@@ -67,8 +76,10 @@ getCustomer(id: string) {
 
     this.sub = this.route.params.subscribe(params => {
         if (params['id']) {
+          this.isReturened = true;
             this.getCustomer(params['id']);
         } else {
+          this.isReturened = false;
             this.buildForm();
         }
     });

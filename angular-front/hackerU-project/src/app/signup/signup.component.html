@@ -5,22 +5,26 @@
         <label><i class="fa fa-user"></i> full name:</label>
         <input class="w3-input w3-border w3-round" type="text" formControlName="fullName"
         >
+        <div class="validField" *ngIf="signupForm.controls.fullName.touched && signupForm.controls.fullName.status == 'INVALID'">invalid field</div>
     </div>
     <div class="field">
         <label><i class="fa fa-envelope"></i>email:</label>
         <input class="w3-input w3-border w3-round" type="text" formControlName="email"
         >
+        <div class="validField" *ngIf="signupForm.controls.email.touched && signupForm.controls.email.status == 'INVALID'">invalid field</div>
     </div>
     <div class="field">
         <label><i class="fa fa-user"></i>user name:</label>
         <input class="w3-input w3-border w3-round" type="text" formControlName="userName"
         >
+        <div class="validField" *ngIf="signupForm.controls.userName.touched && signupForm.controls.userName.status == 'INVALID'">invalid field</div>
     </div>
     <div class="field">
         <label><i class="fa fa-asterisk
             "></i> password:</label>
         <input class="w3-input w3-border w3-round" type="text" formControlName="password"
         >
+        <div class="validField" *ngIf="signupForm.controls.password.touched && signupForm.controls.password.status == 'INVALID'">invalid field</div>
     </div>
 
     <button class="w3-btn w3-green w3-round w3-block" [disabled]="!signupForm.valid" (click)="signup()">send form <i class="fa fa-check
@@ -40,7 +44,7 @@
         </div>
       
 
-        <p>
+        <p class="routing">
             <a routerLink="/login">login account</a>
         </p>
 </form>

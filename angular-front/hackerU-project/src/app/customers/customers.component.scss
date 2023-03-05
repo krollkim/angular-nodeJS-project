@@ -1,6 +1,5 @@
 // table 
 table {
-    border: 1px solid;
     border-collapse: collapse;
     text-align: center;
     margin: auto;
@@ -17,13 +16,15 @@ table {
     }
   }
   th, td {
-    border: 1px solid;
-    padding: 8px;
+    padding: 15px;
     font-size: 16px;
   }
-  
-  tr:nth-child(even) {
-    background-color: rgba(162, 161, 161, 0.491);
+  .thStyle{
+    background-image: linear-gradient(to right, #005B60, #484C89);
+    color: white;
+  }
+  tr{
+    border-bottom: 1px solid rgba(0, 0, 0, 0.313);
   }
   
   h1, p {
