@@ -1,0 +1,29 @@
+<form *ngIf="viewForm" [formGroup]="viewForm">
+    <div class="field">
+      <label>First Name:</label>
+      <input class="w3-input w3-border w3-round" type="text" formControlName="firstName">
+    </div>
+    <div class="field">
+      <label>Last Name:</label>
+      <input class="w3-input w3-border w3-round" type="text" formControlName="lastName">
+    </div>
+    <div class="field">
+      <label>Email:</label>
+      <input class="w3-input w3-border w3-round" type="text" formControlName="email">
+    </div>
+    <div class="field">
+      <label>Phone:</label>
+      <input class="w3-input w3-border w3-round" type="text" formControlName="phone">
+    </div>
+    <div class="field">
+      <label>Address:</label>
+      <input class="w3-input w3-border w3-round" type="text" formControlName="address">
+    </div>
+    <div class="field">
+      <label>Notes:</label>
+      <textarea class="w3-input w3-border w3-round" formControlName="notes"></textarea>
+    </div>
+    <button class="w3-btn w3-red w3-round w3-block w3-border" (click)="return()">return <i class="	fa fa-sign-out"></i></button>
+
+  </form>
+

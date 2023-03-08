@@ -6,6 +6,7 @@ import { EditContactComponent } from "./contacts/edit-contact/edit-contact.compo
 import { CreateCustomerComponent } from "./customers/create-customer/create-customer.component";
 import { CustomersComponent } from "./customers/customers.component";
 import { EditCustomerComponent } from "./customers/edit-customer/edit-customer.component";
+import { ViewCustomerComponent } from "./customers/view-customer/view-customer.component";
 import { ErrorPageComponent } from "./error-page/error-page.component";
 import { HomeComponent } from "./home/home.component";
 import { LoginComponent } from "./login/login.component";
@@ -28,10 +29,12 @@ export const routes: Routes = [
     { path: '', component: CustomersComponent },
     { path: 'create-customer', component: CreateCustomerComponent },
     { path: 'customers/edit-customer/:id', component: EditCustomerComponent},
+    { path: 'customers/view-customer/:id', component: ViewCustomerComponent},
 
     { path: 'contacts', component: ContactsComponent},
     { path: 'create-contact', component: CreateContactComponent},
     { path: 'contacts/edit-contact/:id', component: EditContactComponent},
+    { path: 'contacts/view-contact/:id', component: ViewCustomerComponent},
 
     { path: 'about', component: AboutComponent },
     { path: '**', component: ErrorPageComponent },

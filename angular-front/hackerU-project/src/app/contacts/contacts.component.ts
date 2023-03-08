@@ -56,7 +56,7 @@ export class ContactsComponent {
 
   // to double click a contact and navigate to his full data   
  navigateContact(c: Contacts){
-  this.router.navigate(['/','contacts','edit-contact', c.id]);
+  this.router.navigate(['/','contacts','view-contact', c.id]);
  }
  
  constructor(private http: HttpService, private router: Router, public utility: UtilityService) { }

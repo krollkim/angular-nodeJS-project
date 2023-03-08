@@ -28,6 +28,8 @@ import { CreateContactComponent } from './contacts/create-contact/create-contact
 import { EditContactComponent } from './contacts/edit-contact/edit-contact.component';
 import { AgePipe } from './age.pipe';
 import { DatePipe } from '@angular/common';
+import { ViewCustomerComponent } from './customers/view-customer/view-customer.component';
+import { ViewContactComponent } from './contacts/view-contact/view-contact.component';
 
 
 
@@ -53,6 +55,8 @@ import { DatePipe } from '@angular/common';
      ContactsComponent,
      CreateContactComponent,
      EditContactComponent,
+     ViewCustomerComponent,
+     ViewContactComponent,
   ],
   imports: [
     BrowserModule,
