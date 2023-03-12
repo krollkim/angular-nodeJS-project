@@ -1,12 +1,22 @@
-import mysql from 'mysql';
+const mysql = require('mysql');
 
-export const con = mysql.createConnection({
+let connection = {
     host: 'localhost',
     user: 'root',
     password: '',
     database: 'hackeru-project',
-    
-});
+};
+
+if (process.env.NODE_ENV !== 'development') {
+    connection = {
+        host: 'localhost',
+        user: 'kimkcom_kimk_admin',
+        password: 'arm@_a,lsB7b',
+        database: 'kimkcom_data-base',
+    };
+}
+const con = mysql.createConnection(connection);
+
 con.connect((err) => {
     if (err) {
         throw err;
@@ -15,3 +25,5 @@ con.connect((err) => {
     console.log('DB Connected');
 
 });
+
+exports.con = con;

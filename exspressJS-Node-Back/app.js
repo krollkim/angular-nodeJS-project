@@ -1,11 +1,11 @@
-import express, { request } from 'express';
-import cors from 'cors';
-import './sqlConnect';
-import { signup } from './express-sevices/signup';
-import { getLoginStatus, googleLogin, login, logout } from './express-sevices/login';
-import { addTask, changeTaskLevel, changeTaskStatus, getCounterTasks, getTask, getTasks, removeTask, returnTask, updateTask } from './express-sevices/tasks';
-import { addCustomer, getCustomer, getCustomers, removeCustomer, updateCustomer } from './express-sevices/customers';
-import { addContact, getContact, getContacts, removeContact, updateContact } from './express-sevices/contacts';
+const express = require('express');
+const cors = require('cors');
+require('./sqlConnect');
+const signup = require('./express-sevices/signup');
+const login = require('./express-sevices/login');
+const tasks = require('./express-sevices/tasks');
+const customers = require('./express-sevices/customers');
+const contacts = require('./express-sevices/contacts');
 const session = require('express-session');
 
 const app = express();
@@ -27,9 +27,15 @@ app.use(session({
 
 app.use(express.json());
 
-app.listen(3000, () => {
-    console.log('listening on 3000');
-});
+if (process.env.NODE_ENV == 'development') {
+    app.listen(3000, () => {
+        console.log('listening on 3000');
+    });
+} else {
+    app.listen(() => {
+        console.log('listening...');
+    });
+}
 
 app.use('/', (req, res, next) => {
     setTimeout(next, 500);
@@ -56,38 +62,40 @@ function authGurd(req, res, next) {
     }
 }
 
-app.get('/logout', logout);
-app.get('/login', getLoginStatus);
-app.post('/signup', signup)
-app.post('/login', login);
-app.post('/login', login);
-app.post('/googleLogin', googleLogin);
+// login, logout, signup, google services
+app.get('/logout', login.logout);
+app.get('/login', login.getLoginStatus);
+app.post('/signup', signup.signup)
+app.post('/login', login.login);
+app.post('/login', login.login);
+app.post('/googleLogin', login.googleLogin);
 
 
-app.get('/tasks/counter', authGurd, getCounterTasks);
-app.get('/tasks',authGurd, getTasks);
-app.get('/task/:id',authGurd, getTask);
-app.post('/tasks',authGurd, addTask);
-app.put('/task/:id', authGurd, updateTask);
-app.put('/tasks/:taskId/status/:newStatus',authGurd, changeTaskStatus);
-app.put('/tasks/:taskId/level/:newLevel',authGurd, changeTaskLevel);
-app.put('/tasks/restore/:returnId',authGurd, returnTask);
-app.delete('/tasks/:id',authGurd, removeTask);
+// tasks
+app.get('/tasks/counter', authGurd, tasks.getCounterTasks);
+app.get('/tasks',authGurd, tasks.getTasks);
+app.get('/task/:id',authGurd, tasks.getTask);
+app.post('/tasks',authGurd, tasks.addTask);
+app.put('/task/:id', authGurd, tasks.updateTask);
+app.put('/tasks/:taskId/status/:newStatus',authGurd, tasks.changeTaskStatus);
+app.put('/tasks/:taskId/level/:newLevel',authGurd, tasks.changeTaskLevel);
+app.put('/tasks/restore/:returnId',authGurd, tasks.returnTask);
+app.delete('/tasks/:id',authGurd, tasks.removeTask);
 
+// customers
+app.get('/customers',authGurd, customers.getCustomers);
+app.get('/customers/:id',authGurd, customers.getCustomer);
+app.post('/customer',authGurd, customers.addCustomer);
+app.put('/customer/edit-customer/:id',authGurd, customers.updateCustomer);
+app.put('/customers/:id',authGurd, customers.updateCustomer);
+app.delete('/customers/:id',authGurd, customers.removeCustomer);
 
-app.get('/customers',authGurd, getCustomers);
-app.get('/customers/:id',authGurd, getCustomer);
-app.post('/customer',authGurd, addCustomer);
-app.put('/customer/edit-customer/:id',authGurd, updateCustomer);
-app.put('/customers/:id',authGurd, updateCustomer);
-app.delete('/customers/:id',authGurd, removeCustomer);
-
-
-app.get('/contacts',authGurd, getContacts);
-app.get('/contacts/:id',authGurd, getContact);
-app.post('/contact',authGurd, addContact);
-app.put('/contact/edit-contact/:id',authGurd, updateContact);
-app.put('/contacts/:id',authGurd, updateContact);
-app.delete('/contacts/:id',authGurd, removeContact);
+// contacts
+app.get('/contacts',authGurd, contacts.getContacts);
+app.get('/contacts/:id',authGurd, contacts.getContact);
+app.post('/contact',authGurd, contacts.addContact);
+app.put('/contact/edit-contact/:id',authGurd, contacts.updateContact);
+app.put('/contacts/:id',authGurd, contacts.updateContact);
+app.delete('/contacts/:id',authGurd, contacts.removeContact);
 
 

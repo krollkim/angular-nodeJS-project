@@ -1,6 +1,6 @@
-import { con } from '../sqlConnect';
+const con = require("../sqlConnect").con;
 
-export function getLoginStatus(req,res){
+exports.getLoginStatus = function(req,res){
     if(req.session.user){
         res.send( {
             status: 'success',
@@ -13,12 +13,12 @@ export function getLoginStatus(req,res){
     }
 }
 
-export function logout(req, res) {
+exports.logout = function(req, res) {
     delete req.session.user;
     res.send();
 }
 
-export function googleLogin(req, res) {
+exports.googleLogin = function(req, res) {
 
     con.query("SELECT * FROM `users` WHERE `email`=?", [req.body.email], (err, result) => {
         if (err) {
@@ -68,7 +68,7 @@ export function googleLogin(req, res) {
    });
 }
 
-export function login(req, res) {
+exports.login = function(req, res) {
     delete req.session.user;
 
     if(!req.session.attemtps){
