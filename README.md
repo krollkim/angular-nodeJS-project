@@ -73,3 +73,7 @@ This CRM app was created by Kim Kroll.
 License -
 
 This project is licensed under the MIT License.
+
+BTW -
+inside the folder of the project there is an exported file of the data base, copy the sql content and paste it in yours.
+

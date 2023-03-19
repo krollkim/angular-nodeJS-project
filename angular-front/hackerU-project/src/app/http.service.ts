@@ -2,13 +2,14 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { UtilityService } from './Utilityservice';
 import { finalize } from 'rxjs';
+import { environment } from 'src/environments/environment';
 
 
 @Injectable({
   providedIn: 'root'
 })
 export class HttpService {
-    private readonly url = 'http://localhost:3000';
+    private readonly url = environment.apiUrl;
     private readonly options = { withCredentials: true };
 
 
