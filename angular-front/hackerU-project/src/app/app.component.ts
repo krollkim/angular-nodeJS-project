@@ -13,7 +13,7 @@ import { UtilityService } from './Utilityservice';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'CRM-SiteProject';
+  title = 'CRM-Site-Project';
   
   logout() {
     const sub = this.http.get("logout").pipe(finalize(() => {
