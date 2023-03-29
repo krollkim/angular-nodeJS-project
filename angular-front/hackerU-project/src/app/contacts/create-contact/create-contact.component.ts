@@ -41,22 +41,22 @@ contactForm = new FormGroup({
         ]),
         state: new FormControl('', [
             Validators.required,
-            Validators.minLength(9),
+            Validators.minLength(3),
             Validators.maxLength(30),
         ]),
         city: new FormControl('', [
             Validators.required,
-            Validators.minLength(9),
+            Validators.minLength(3),
             Validators.maxLength(30),
         ]),
         street: new FormControl('', [
             Validators.required,
-            Validators.minLength(9),
+            Validators.minLength(3),
             Validators.maxLength(30),
         ]),
         postalCode: new FormControl('', [
             Validators.required,
-            Validators.minLength(9),
+            Validators.minLength(4),
             Validators.maxLength(30),
         ]),
     });
