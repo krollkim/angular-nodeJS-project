@@ -1,4 +1,5 @@
 // import { SocialAuthService } from '@abacritt/angularx-social-login';
+import { SocialAuthService } from '@abacritt/angularx-social-login';
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { finalize } from 'rxjs';
@@ -14,19 +15,8 @@ import { UtilityService } from './Utilityservice';
 })
 export class AppComponent {
   title = 'CRM-Site-Project';
-  
-  logout() {
-    const sub = this.http.get("logout").pipe(finalize(() => {
-        if (sub?.unsubscribe) {
-            sub.unsubscribe();
-        }
-    })).subscribe(() => {
-        this.utility.setUser();
-        this.router.navigate(['login']);
-    });
-}
 
-  constructor(public utility: UtilityService, private http: HttpService, private router: Router) { }
+  constructor(public utility: UtilityService, private http: HttpService, private router: Router, private authService: SocialAuthService) { }
 
   ngOnInit() {
       const sub = this.http.get<Userlogin>("login").pipe(finalize(() => {

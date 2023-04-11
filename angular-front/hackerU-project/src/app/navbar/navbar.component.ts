@@ -5,6 +5,7 @@ import { UtilityService } from '../Utilityservice';
 import { HttpService } from '../http.service';
 import { Userlogin } from '../login/login.interface';
 import { finalize } from 'rxjs';
+import { SocialAuthService } from '@abacritt/angularx-social-login';
 @Component({
   selector: 'app-navbar',
   templateUrl: './navbar.component.html',
@@ -45,12 +46,13 @@ sideBar: Nav[] = [
             sub.unsubscribe();
         }
     })).subscribe(() => {
+      this.authService.signOut();
         this.utility.setUser();
         this.router.navigate(['login']);
     });
 }
 
-  constructor(public utility: UtilityService, private http: HttpService, private router: Router) { 
+  constructor(public utility: UtilityService, private http: HttpService, private router: Router, private authService: SocialAuthService) { 
     router.events.subscribe(ev => {
       if (ev instanceof NavigationStart) {
         this.active = ev.url;
